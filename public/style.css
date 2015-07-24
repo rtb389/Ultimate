@@ -1,0 +1,76 @@
+.col-xs-1:nth-child(3){
+	border-right-style: solid;
+	border-right-color: black;
+}
+.col-xs-1:nth-child(2){
+	border-right-style: solid;
+	border-right-color: black;
+}
+
+.row .row:nth-child(1) .col-xs-1{
+	border-bottom-style: solid;
+	border-bottom-color: black;
+}
+.row .row:nth-child(2) .col-xs-1{
+	border-bottom-style: solid;
+	border-bottom-color: black;
+}
+
+.row .row:nth-child(3) .col-xs-1:nth-child(3){
+	border-right-style: solid;
+	border-right-color: black;
+}
+.row .row:nth-child(3) .col-xs-1:nth-child(2){
+	border-right-style: solid;
+	border-right-color: black;
+}
+
+.col-xs-4:nth-child(2){
+	border-right-style: solid;
+	border-right-color: black;
+}
+.col-xs-4:nth-child(1){
+	border-right-style: solid;
+	border-right-color: black;
+}
+
+.col-xs-4{
+	padding: 5%;
+}
+.col-xs-1{
+	height: 20px;
+	text-align: center;
+}
+
+.row:nth-child(1) .col-xs-4{
+	border-bottom-style: solid;
+	border-bottom-color: black;
+}
+.row:nth-child(2) .col-xs-4{
+	border-bottom-style: solid;
+	border-bottom-color: black;
+}
+
+.diagonal1{
+	background-image: url(diagonal_1.png);
+	background-size: cover;
+	background-position: center;
+}
+.diagonal2{
+	background-image: url(diagonal_2.png);
+	background-size: cover;
+	background-position: center;
+}
+.horizontal{
+	background-image: url(horizontal.png);
+	background-size: cover;
+	background-position: center;
+}
+.vertical{
+	background-image: url(vertical.png);
+	background-size: cover;
+	background-position: center;
+}
+
+
+

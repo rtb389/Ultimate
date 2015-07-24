@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link rel = "stylesheet" type="text" href="style.css">
+	<script src = "alphabeta.js"></script>
+	<title></title>
+</head>
+<body >
+	<div class="container-fluid">
+		<div class = "row">
+			<div class = "col-xs-4">
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wTL TL col-xs-1"></div>
+					<div class = "wTL TM col-xs-1"></div>
+					<div class = "wTL TR col-xs-1"></div>
+				</div>
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wTL ML col-xs-1"></div>
+					<div class = "wTL MM col-xs-1"></div>
+					<div class = "wTL MR col-xs-1"></div>
+				</div>
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wTL BL col-xs-1"></div>
+					<div class = "wTL BM col-xs-1"></div>
+					<div class = "wTL BR col-xs-1"></div>
+				</div>
+			</div>
+			<div class = "col-xs-4">
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wTM TL col-xs-1"></div>
+					<div class = "wTM TM col-xs-1"></div>
+					<div class = "wTM TR col-xs-1"></div>
+				</div>
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wTM ML col-xs-1"></div>
+					<div class = "wTM MM col-xs-1"></div>
+					<div class = "wTM MR col-xs-1"></div>
+				</div>
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wTM BL col-xs-1"></div>
+					<div class = "wTM BM col-xs-1"></div>
+					<div class = "wTM BR col-xs-1"></div>
+				</div>
+			</div>
+			<div class = "col-xs-4">
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wTR TL col-xs-1"></div>
+					<div class = "wTR TM col-xs-1"></div>
+					<div class = "wTR TR col-xs-1"></div>
+				</div>
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wTR ML col-xs-1"></div>
+					<div class = "wTR MM col-xs-1"></div>
+					<div class = "wTR MR col-xs-1"></div>
+				</div>
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wTR BL col-xs-1"></div>
+					<div class = "wTR BM col-xs-1"></div>
+					<div class = "wTR BR col-xs-1"></div>
+				</div>
+			</div>
+		</div>
+		<div class = "row">
+			<div class = "col-xs-4">
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wML TL col-xs-1"></div>
+					<div class = "wML TM col-xs-1"></div>
+					<div class = "wML TR col-xs-1"></div>
+				</div>
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wML ML col-xs-1"></div>
+					<div class = "wML MM col-xs-1"></div>
+					<div class = "wML MR col-xs-1"></div>
+				</div>
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wML BL col-xs-1"></div>
+					<div class = "wML BM col-xs-1"></div>
+					<div class = "wML BR col-xs-1"></div>
+				</div>
+			</div>
+			<div class = "col-xs-4">
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wMM TL col-xs-1"></div>
+					<div class = "wMM TM col-xs-1"></div>
+					<div class = "wMM TR col-xs-1"></div>
+				</div>
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wMM ML col-xs-1"></div>
+					<div class = "wMM MM col-xs-1"></div>
+					<div class = "wMM MR col-xs-1"></div>
+				</div>
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wMM BL col-xs-1"></div>
+					<div class = "wMM BM col-xs-1"></div>
+					<div class = "wMM BR col-xs-1"></div>
+				</div>
+			</div>
+			<div class = "col-xs-4">
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wMR TL col-xs-1"></div>
+					<div class = "wMR TM col-xs-1"></div>
+					<div class = "wMR TR col-xs-1"></div>
+				</div>
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wMR ML col-xs-1"></div>
+					<div class = "wMR MM col-xs-1"></div>
+					<div class = "wMR MR col-xs-1"></div>
+				</div>
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wMR BL col-xs-1"></div>
+					<div class = "wMR BM col-xs-1"></div>
+					<div class = "wMR BR col-xs-1"></div>
+				</div>
+			</div>
+		</div>
+		<div class = "row">
+			<div class = "col-xs-4">
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wBL TL col-xs-1"></div>
+					<div class = "wBL TM col-xs-1"></div>
+					<div class = "wBL TR col-xs-1"></div>
+				</div>
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wBL ML col-xs-1"></div>
+					<div class = "wBL MM col-xs-1"></div>
+					<div class = "wBL MR col-xs-1"></div>
+				</div>
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wBL BL col-xs-1"></div>
+					<div class = "wBL BM col-xs-1"></div>
+					<div class = "wBL BR col-xs-1"></div>
+				</div>
+			</div>
+			<div class = "col-xs-4">
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wBM TL col-xs-1"></div>
+					<div class = "wBM TM col-xs-1"></div>
+					<div class = "wBM TR col-xs-1"></div>
+				</div>
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wBM ML col-xs-1"></div>
+					<div class = "wBM MM col-xs-1"></div>
+					<div class = "wBM MR col-xs-1"></div>
+				</div>
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wBM BL col-xs-1"></div>
+					<div class = "wBM BM col-xs-1"></div>
+					<div class = "wBM BR col-xs-1"></div>
+				</div>
+			</div>
+			<div class = "col-xs-4">
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wBR TL col-xs-1"></div>
+					<div class = "wBR TM col-xs-1"></div>
+					<div class = "wBR TR col-xs-1"></div>
+				</div>
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wBR ML col-xs-1"></div>
+					<div class = "wBR MM col-xs-1"></div>
+					<div class = "wBR MR col-xs-1"></div>
+				</div>
+				<div class = "row">
+					<div class = "col-xs-3"></div>
+					<div class = "wBR BL col-xs-1"></div>
+					<div class = "wBR BM col-xs-1"></div>
+					<div class = "wBR BR col-xs-1"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

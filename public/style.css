@@ -71,6 +71,52 @@
 	background-size: cover;
 	background-position: center;
 }
+.lightbox{
+	padding: 2.5%;
+	margin-top: 15%;
+	margin-left: 25%;
+	width: 50%;
+	height: auto;
+	position: absolute;
+	z-index: -11;
+	background-color: white;
+	visibility: hidden;
+}
+.blanket{
+	width: 150%;
+	height: 100%;
+	position: absolute;
+	z-index: -10;
+	background-color: gray;
+	opacity: 0.75;
+	visibility: hidden;
+}
+.green1{
+	background-image: url(diagonal_1copy.png);
+	background-size: cover;
+	background-position: center;
+}
+.green2{
+	background-image: url(diagonal_2copy.png);
+	background-size: cover;
+	background-position: center;
+}
+.green4{
+	background-image: url(verticalcopy.png);
+	background-size: cover;
+	background-position: center;
+}
+.green3{
+	background-image: url(horizontalcopy.png);
+	background-size: cover;
+	background-position: center;
+}
+.home{
+	z-index: 2;
+	position: absolute;
+}
+
+
 
 
 

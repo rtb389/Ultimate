@@ -1,4 +1,5 @@
-		var count = 0;
+		var line2 = 0; //Tells if line has been drawn
+
 		var clicks = 0; //Number of turns
 		var Player = 0; //checks which turn player has
 
@@ -17,6 +18,8 @@
 		var num; //Used to track which square is being selected
 		var num2; //Stores board number
 		var num3; //Stores position on small board
+
+		var difficulty = 0;
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -569,6 +572,32 @@ function sim(x){
 			return "." + wboxes[num2];
 		}
 
+		//Removes green line
+		function degreen(){
+			switch(line2){
+				case 0:
+					$("." + wboxes[num2] + "." + boxes[num3]).css("background-color", "white");
+					break;
+				case 1:
+					$("." + wboxes[num2] + "." + boxes[num3]).removeClass("green1");
+					$("." + wboxes[num2] + "." + boxes[num3]).addClass("diagonal1");
+					break;
+				case 2:
+					$("." + wboxes[num2] + "." + boxes[num3]).removeClass("green2");
+					$("." + wboxes[num2] + "." + boxes[num3]).addClass("diagonal2");
+					break;
+				case 3:
+					$("." + wboxes[num2] + "." + boxes[num3]).removeClass("green3");
+					$("." + wboxes[num2] + "." + boxes[num3]).addClass("horizontal");
+					break;
+				case 4:
+					$("." + wboxes[num2] + "." + boxes[num3]).removeClass("green4");
+					$("." + wboxes[num2] + "." + boxes[num3]).addClass("vertical");
+					break;
+			}
+			line2 = 0;
+		}
+
 		//addLine draws a line through a completed row/column/diagonal
 		function addLine(){
 			var x = unCheck();
@@ -578,11 +607,13 @@ function sim(x){
 					$(x + ".TL").addClass("diagonal1");
 					$(x + ".MM").addClass("diagonal1");
 					$(x + ".BR").addClass("diagonal1");
+					line2 = 1;
 					break;
 				case "diagonal2":
 					$(x + ".TR").addClass("diagonal2");
 					$(x + ".MM").addClass("diagonal2");
 					$(x + ".BL").addClass("diagonal2");
+					line2 = 2;
 					break;
 				case "horizontal":
 					if(num%9 < 3){
@@ -600,6 +631,7 @@ function sim(x){
 						$(x + ".BM").addClass("horizontal");
 						$(x + ".BR").addClass("horizontal");
 					}
+					line2 = 3;
 					break;
 				case "vertical":
 					if (num%3 == 0){
@@ -617,7 +649,8 @@ function sim(x){
 						$(x + ".MR").addClass("vertical");
 						$(x + ".BR").addClass("vertical");
 					}
-				break;
+					line2 = 4;
+					break;
 			}
 		}
 
@@ -634,6 +667,7 @@ function sim(x){
 					}
 					end = false;
 					addLine();
+					line2 = 0;
 					check4();
 				}
 			}
@@ -688,22 +722,41 @@ function sim(x){
 
 //////////////////////////////////////////////////////////////////////
 			if(W.val == ""){
-				num = sim(5);
+				num = sim(difficulty);
 				num2 = Math.floor(num/9);
 				num3 = num%9;
-				clicks++;
+				clicks=clicks-difficulty;
 
 				var m = move(num, W);
-				clicks--;
+				clicks++;
 				if (Player == 0){
 					$("." + wboxes[num2] + "." + boxes[num3]).text("o");
 				}
 				else{
 					$("." + wboxes[num2] + "." + boxes[num3]).text("x");
-				}	
+				}
+				$("." + wboxes[num2] + "." + boxes[num3]).css("background-color", "lightgreen")	;
 				if(W.spaces[num2].val != m.spaces[num2].val){
 					W = m;
 					addLine();
+					switch(line2){
+						case 1:
+							$("." + wboxes[num2] + "." + boxes[num3]).removeClass("diagonal1");
+							$("." + wboxes[num2] + "." + boxes[num3]).addClass("green1");
+							break;
+						case 2:
+							$("." + wboxes[num2] + "." + boxes[num3]).removeClass("diagonal2");
+							$("." + wboxes[num2] + "." + boxes[num3]).addClass("green2");
+							break;
+						case 3:
+							$("." + wboxes[num2] + "." + boxes[num3]).removeClass("horizontal");
+							$("." + wboxes[num2] + "." + boxes[num3]).addClass("green3");
+							break;
+						case 4:
+							$("." + wboxes[num2] + "." + boxes[num3]).removeClass("vertical");
+							$("." + wboxes[num2] + "." + boxes[num3]).addClass("green4");
+							break;
+					}
 				}	
 				else{
 					W = m;
@@ -718,12 +771,44 @@ function sim(x){
 				}
 			}
 //////////////////////////////////////////////////////////////////////
-			
+			if(clicks==81){
+				W.val = -1;
+				alert("TIE");
+			}
 		}
 
 
 $("document").ready(
 	function(){
+		Player = prompt("Would you like to go first or second?", "1/2");
+		while(Player != 1 && Player != 2){
+			Player = prompt("Please enter either 1 or 2", "1/2");
+		}
+		Player--;
+		difficulty = prompt("Please choose a level of difficulty", "1/2/3");
+		while(difficulty!=1 && difficulty!=2 && difficulty!=3){
+			difficulty = prompt("Please choose either 1, 2, or 3", "1/2/3");
+		}
+		if(difficulty == 2){
+			difficulty++;
+		}
+		else{
+			if(difficulty == 3){
+				difficulty=5;
+			}
+		}
+		if(Player==1){
+			num = Math.floor(81*Math.random());
+			num2 = Math.floor(num/9);
+			num3 = num%9;
+			clicks = 0;
+
+			var m = move(num, W);
+			clicks++;
+			$("." + wboxes[num2] + "." + boxes[num3]).text("x");
+			$("." + wboxes[num2] + "." + boxes[num3]).css("background-color", "lightgreen")	;
+			W = m;
+		}
 		$(".col-xs-1").hover(
 			function(){
 				if(W.val == ""){
@@ -740,7 +825,9 @@ $("document").ready(
 				}
 			},
 			function(){
-				$(this).css("background-color", "white");
+				if($(this).css("background-color") == 'rgb(255, 255, 0)'){
+					$(this).css("background-color", "white");
+				}
 			}
 		);
 		$(".col-xs-1").click(
@@ -749,11 +836,13 @@ $("document").ready(
 					if(!$(this).text().trim().length && Player == 0){
 						if(W.next==-1){
 							$(this).text("x");
+							degreen();
 							returnClass(this);
 						}
 						else{
 							if($(this).hasClass(wboxes[W.next])){
 								$(this).text("x");
+								degreen();
 								returnClass(this);
 							}
 						}
@@ -761,11 +850,13 @@ $("document").ready(
 					if(!$(this).text().trim().length && Player == 1){
 						if(W.next==-1){
 							$(this).text("o");
+							degreen();
 							returnClass(this);
 						}
 						else{
 							if($(this).hasClass(wboxes[W.next])){	
 								$(this).text("o");
+								degreen();
 								returnClass(this);	
 							}
 						}

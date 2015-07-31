@@ -1,0 +1,76 @@
+<script>
+$("document").ready(
+	function(){
+		$(".wTM.col-xs-4").css("font-size", "32px")
+		$(".col-xs-4").css("text-align", "center")
+		$(".col-xs-4").css("height", "150px")
+		$(".wTM.col-xs-1").css("border-style", "none");
+		$(".wTM.col-xs-4").text("Rules");
+		$(".wML.col-xs-1").css("border-style", "none");
+		$(".wML.col-xs-4").css("font-size", "16px");
+		$(".wML.col-xs-4").text("General Rules");
+		$(".wML.col-xs-4").addClass("General");
+		$(".wMR.col-xs-1").css("border-style", "none");
+		$(".wMR.col-xs-4").css("font-size", "16px");
+		$(".wMR.col-xs-4").addClass("Tips");
+		$(".wMR.col-xs-4").text("Tips");
+		$(".General").hover(
+			function(){
+				$(this).css("background-color", "yellow");
+			},
+			function(){
+				$(this).css("background-color", "white");
+			});
+		$(".Tips").hover(
+			function(){
+				$(this).css("background-color", "yellow");
+			},
+			function(){
+				$(this).css("background-color", "white");
+			});
+		$(".General").click(
+			function(){
+				$(".blanket").css("z-index", "10");
+				$(".lightbox").css("z-index", "11");
+				$(".blanket").css("visibility", "visible");
+				$(".lightbox").css("visibility", "visible");
+				$(".lightbox").text("Ultimate tic-tac-toe is a variation on the classic game wherein each of the spaces of the original board are themselves tic-tac-toe boards. A player can gain a space on the larger board by being the first to win tic-tac-toe on the corresponding smaller board. The objective of the game is to win tic-tac-toe on the large board. However, players are restricted in where they can move. A player must play in the space on the larger board corresponding to the space on the smaller board that the previous player used. For example, if a player plays in the top-left corner of one of the smaller boards, the next player must play somewhere in the top-left board, if it is open.");
+
+
+			});
+		$(".Tips").click(
+			function(){
+				$(".blanket").css("z-index", "10");
+				$(".lightbox").css("z-index", "11");
+				$(".blanket").css("visibility", "visible");
+				$(".lightbox").css("visibility", "visible");
+				$(".lightbox").text("If you are the first player, or the board you are supposed to play in is full, you are free to play wherever you wish. However, just because a board has been won does not mean that it cannot be played in. A board is only considered full when all 9 of its spaces have been used, and must continue to be played in until it is filled, regardless of whether or not it has been won. In addition, each board may only be won once.");
+
+
+			});
+		$(".blanket").click(
+			function(){
+				$(".blanket").css("z-index", "-11");
+				$(".lightbox").css("z-index", "-10");
+				$(".blanket").css("visibility", "hidden");
+				$(".lightbox").css("visibility", "hidden");
+			});
+		$(".lightbox").click(
+			function(){
+				$(".blanket").css("z-index", "-11");
+				$(".lightbox").css("z-index", "-10");
+				$(".blanket").css("visibility", "hidden");
+				$(".lightbox").css("visibility", "hidden");
+			});
+		$(".wTL.col-xs-4").css("border-bottom-style", "solid");
+		$(".wTM.col-xs-4").css("border-bottom-style", "solid");
+		$(".wTR.col-xs-4").css("border-bottom-style", "solid");
+		$(".wML.col-xs-4").css("border-bottom-style", "solid");
+		$(".wMM.col-xs-4").css("border-bottom-style", "solid");
+		$(".wMR.col-xs-4").css("border-bottom-style", "solid");
+
+
+	}
+)
+
+</script>

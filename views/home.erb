@@ -1,0 +1,46 @@
+<script>
+$("document").ready(
+	function(){
+		$(".col-xs-4").css("font-size", "32px")
+		$(".col-xs-4").css("text-align", "center")
+		$(".col-xs-4").css("height", "150px")
+		$(".wTM.col-xs-1").css("border-style", "none");
+		$(".wTM.col-xs-4").text("ULTIMATE");
+		$(".wML.col-xs-1").css("border-style", "none");
+		$(".wML.col-xs-4").text("TIC-");
+		$(".wMM.col-xs-1").css("border-style", "none");
+		$(".wMM.col-xs-4").text("TAC-");
+		$(".wMR.col-xs-1").css("border-style", "none");
+		$(".wMR.col-xs-4").text("TOE");
+		$(".wBL").css("font-size", "20px")
+		$(".wBM").css("font-size", "20px")
+		$(".wBR").css("font-size", "20px")
+		$(".wBL.col-xs-4").html("<a href='1P'>1P</a>");
+		$(".wBM.col-xs-4").html("<a href='2P'>2P</a>");
+		$(".wBR.col-xs-4").html("<a href='Rules'>Rules</a>");
+		$("a").css("text-decoration", "none");
+		$(".wBL.col-xs-4").hover(
+			function(){
+				$(this).css("background-color", "yellow");
+			},
+			function(){
+				$(this).css("background-color", "white");
+			});
+		$(".wBM.col-xs-4").hover(
+			function(){
+				$(this).css("background-color", "yellow");
+			},
+			function(){
+				$(this).css("background-color", "white");
+			});
+		$(".wBR.col-xs-4").hover(
+			function(){
+				$(this).css("background-color", "yellow");
+			},
+			function(){
+				$(this).css("background-color", "white");
+			});
+	}
+)
+
+</script>
